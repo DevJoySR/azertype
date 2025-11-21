@@ -1,9 +1,22 @@
-console.log("Hello world");
+const listeMot = ["Cachalot", "Petunia", "Serviette"]
+let score = 0
 
-let motTapeOk = true
-if (motTapeOk)
-{
-    console.log("Bravo, vous avez correctement tapé le mot");
-} else{
-    console.log("Echec, le mot n'est pas correct")
+let motUtilisateur = prompt("Entrez le mot : " + listeMot[0])
+
+if (motUtilisateur === listeMot[0]){
+    score++
 }
+
+motUtilisateur = prompt("Entrez le mot : " + listeMot[1])
+
+if (motUtilisateur === listeMot[1]){
+    score++
+}
+
+motUtilisateur = prompt("Entrez le mot : " + listeMot[2])
+
+if (motUtilisateur === listeMot[2]){
+    score++
+}
+
+console.log(score);
