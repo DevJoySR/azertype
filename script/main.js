@@ -1,3 +1,6 @@
 // lancerJeu()
-let idSaisie = document.getElementById("idSaisie")
-console.log(idSaisie)
+let inputEcriture = document.getElementById("inputEcriture")
+let btnValiderMot = document.getElementById("btnValiderMot")
+console.log(inputEcriture, btnValiderMot)
+
+let scoreAfficher = document.querySelector()
