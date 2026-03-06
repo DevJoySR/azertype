@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +11,12 @@
 
     <!-- Inclusion des 3 scripts nécessaires pour faire fonctionner le jeu -->
     <!-- Attention, l'ordre des fichiers js est important.  -->
-    <script src="scripts/config.js"></script>
-    <script src="scripts/script.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/popup.js" defer></script>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/main.js" defer></script>
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
@@ -34,7 +37,7 @@
             </div>
         </div>
 
-        <div class="zoneProposition" id="zoneProposer">
+        <div class="zoneProposition">
             Azerty
         </div>
 
@@ -43,15 +46,34 @@
             <button id="btnValiderMot">Valider</button>
         </div>
 
-        <div class="zoneScore" id="scoreAfficher">
+        <div class="zoneScore">
             Votre score : <span>0</span>
         </div>
-        
+
+        <div class="zonePartage">
+            <button>Partager</button>
+        </div>
+
     </main>
 
     <!-- FOOTER -->
     <footer>
-        @Copyright : Openclassrooms. 
+        @Copyright : Openclassrooms.
     </footer>
+
+    <!-- Popup de partage -->
+    <div class="popupBackground">
+        <div class="popup">
+            <div>Partagez votre score</div>
+            <form novalidate>
+                <label for="nom">Votre nom</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom">
+                <label for="email">Avec qui voulez-vous partager votre score ?</label>
+                <input type="email" id="email" name="email" placeholder="nom@domaine.com">
+                <button id="btnEnvoyerMail">Envoyer</button>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
