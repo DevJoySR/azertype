@@ -13,7 +13,7 @@ function afficherResultat(score, nbMotsProposes) {
     // Récupération de la zone dans laquelle on va écrire le score
     let spanScore = document.querySelector(".zoneScore span")
     // Ecriture du texte
-    let affichageScore = `${score} / ${nbMotsProposes}`
+    let affichageScore = `${score} / ${nbMotsProposes}` 
     // On place le texte à l'intérieur du span. 
     spanScore.innerText = affichageScore
 }
@@ -39,35 +39,31 @@ function afficherEmail(nom, email, score) {
     location.href = mailto
 }
 
-function verifierMail(balise) {
-    let emailRegExp = new RegPex("[a-z._-]+@[a-z._-]+\.+[a-z._-]+")
-    if (emailRegExp.test(balise.value)) {
-        console.log("ok");
-        balise.classList.remove("error")
-    } else {
-        balise.classList.add("error")
-        console.log("ko")
-    }
-}
-
+/**
+ * Cette fonction prend un nom en paramètre et valide qu'il est au bon format
+ * ici : deux caractères au minimum
+ * @param {string} nom 
+ * @return {boolean}
+ */
 function validerNom(nom) {
     if (nom.length >= 2) {
-        return true
-    } else {
-        return false
-    }
-}
-
-function validerMail(email) {
-    let emailRegExp = new RegPex("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
-    if (emailRegExp.test(email)) {
         return true
     }
     return false
 }
 
-
-
+/**
+ * Cette fonction prend un email en paramètre et valide qu'il est au bon format. 
+ * @param {string} email 
+ * @return {boolean}
+ */
+function validerEmail(email) {
+    let emailRegExp = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+")
+    if (emailRegExp.test(email)) {
+        return true
+    }
+    return false
+}
 
 /**
  * Cette fonction lance le jeu. 
@@ -117,21 +113,26 @@ function lancerJeu() {
             afficherProposition(listeProposition[i])
         })
     }
-    let form = document.querySelector("form")
 
+    // Gestion de l'événement submit sur le formulaire de partage. 
+    let form = document.querySelector("form")
     form.addEventListener("submit", (event) => {
         event.preventDefault()
+
         let baliseNom = document.getElementById("nom")
         let nom = baliseNom.value
+
         let baliseEmail = document.getElementById("email")
         let email = baliseEmail.value
 
-        if (validerNom(nom) && validerMail(email)) {
-            let scoreMail = '${score} / ${i}'
-            afficherEmail(nom, email, scoreMail)
+        if (validerNom(nom) && validerEmail(email)) {
+            let scoreEmail = `${score} / ${i}`
+            afficherEmail(nom, email, scoreEmail)
         } else {
             console.log("Erreur")
-        }        
+        }
+        
     })
+
     afficherResultat(score, i)
 }
