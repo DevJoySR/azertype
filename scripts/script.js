@@ -13,7 +13,7 @@ function afficherResultat(score, nbMotsProposes) {
     // Récupération de la zone dans laquelle on va écrire le score
     let spanScore = document.querySelector(".zoneScore span")
     // Ecriture du texte
-    let affichageScore = `${score} / ${nbMotsProposes}` 
+    let affichageScore = `${score} / ${nbMotsProposes}`
     // On place le texte à l'intérieur du span. 
     spanScore.innerText = affichageScore
 }
@@ -31,26 +31,40 @@ function lancerJeu() {
     // Initialisations
     let score = 0
     let i = 0
+    let listeProposition = listeMots
 
     let btnValiderMot = document.getElementById("btnValiderMot")
     let inputEcriture = document.getElementById("inputEcriture")
-    afficherProposition(listeMots[i])
+    afficherProposition(listeProposition[i])
     btnValiderMot.addEventListener("click", () => {
         console.log(inputEcriture.value)
-        if (inputEcriture.value === listeMots[i]) {
+        if (inputEcriture.value === listeProposition[i]) {
             score++
         }
         i++
         afficherResultat(score, i)
         inputEcriture.value = ''
-        if (listeMots[i] === undefined) {
+        if (listeProposition[i] === undefined) {
             afficherProposition("Le jeu est fini")
             btnValiderMot.disabled = true
         } else {
-            afficherProposition(listeMots[i])
+            afficherProposition(listeProposition[i])
         }
-        
+
     })
+
+    let listeBtnRadio = document.querySelectorAll(".optionSource input")
+    for (let index = 0; index < listeBtnRadio.length; index++)
+        listeBtnRadio[index].addEventListener("change", () => {
+            console.log(event.target.value)
+            if (event.target.value === "1"){
+                listeProposition = listeMots
+            } else {
+                listeProposition = listePhrases
+            }
+            afficherProposition(listeProposition[i])
+        })
 
     afficherResultat(score, i)
 }
+
