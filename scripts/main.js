@@ -4,20 +4,21 @@
  * 
  *********************************************************************************/
 
-// Ici, j'ai mis la fonction lancerJeu() en commentaire pour ne pas être dérangé par l'affichage des popups. 
-// lancerJeu()
+lancerJeu()
 
-let inputEcriture = document.getElementById("inputEcriture");
-console.log(inputEcriture);
+// J'ai mis ce code en commentaire, nous pourrons le récupérer lorsque nous en auront besoin :
 
-let btnValiderMot = document.getElementById("btnValiderMot");
-console.log(btnValiderMot);
+// let inputEcriture = document.getElementById("inputEcriture")
+// console.log(inputEcriture)
 
-let divZoneProposition = document.querySelector(".zoneProposition");
-console.log(divZoneProposition);
+// let btnValiderMot = document.getElementById("btnValiderMot")
+// console.log(btnValiderMot)
 
-let spanZoneScore = document.querySelector(".zoneScore span");
-console.log(spanZoneScore);
+// let zoneProposition = document.querySelector(".zoneProposition")
+// console.log(zoneProposition)
 
-let listeInputRadio = document.querySelectorAll(".optionSource input")
-console.log(listeInputRadio)
+// let spanScore = document.querySelector(".zoneScore span")
+// console.log(spanScore)
+
+// let listeBtnRadio = document.querySelectorAll(".optionSource input")
+// console.log(listeBtnRadio)
